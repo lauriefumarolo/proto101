@@ -1,0 +1,18 @@
+<nav class="navPages">
+    <ul class="navPages-list{{#if theme_settings.haloMegamenu}} navPages-list-megamenu{{/if}} navPages-list-depth-max">
+        {{#each categories}}
+            {{#if name '!=' ../theme_settings.halo_menu_tab_title_2}}
+                <li class="navPages-item{{#if children}} has-dropdown{{/if}}">
+                    {{> components/common/navigation-list-alternate}}
+                </li>
+            {{/if}}
+        {{/each}}
+        {{#unless theme_settings.hide_content_navigation}}
+            {{#each pages}}
+                <li class="navPages-item navPages-item-page{{#if children}} has-dropdown{{/if}}">
+                    {{> components/common/navigation-list-alternate}}
+                </li>
+            {{/each}}
+        {{/unless}}
+    </ul>
+</nav>

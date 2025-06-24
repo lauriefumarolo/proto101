@@ -1,0 +1,67 @@
+// =============================================================================
+// GRID (CSS)
+// =============================================================================
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1800px;
+    padding: 0 10px;
+    position: relative;
+    width: layout("fixed");
+
+    .container {
+        padding: 0;
+    }
+
+    &.container--full {
+        max-width: 100%;
+        padding: 0;
+
+        .home-layout-2 &,
+        .home-layout-3 & {
+            padding: 0;
+        }
+    }
+
+    &.heroCarousel-wrapper {
+
+        .home-layout-3 &,
+        .home-layout-4 & {
+            padding: 0;
+        }
+    }
+
+    @media(min-width: 1280px) {
+        padding: 0 30px;
+        max-width: 1920px;
+    }
+
+    @media(min-width: 1400px) {
+        padding: 0 60px;
+        max-width: 100%;
+    }
+
+    @media(min-width: 1600px) {
+        padding: 0 75px;
+
+        .home-layout-2 &,
+        .home-layout-3 & {
+            padding: 0 60px;
+        }
+    }
+}
+
+.container--medium {
+    max-width: 1390px;
+    padding: 0 10px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+.container--small {
+    max-width: 1170px;
+    margin-left: auto;
+    margin-right: auto;
+}

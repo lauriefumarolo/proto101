@@ -1,0 +1,82 @@
+{{inject 'hasMainCarousel' true}}
+{{inject 'mainCarouselArrow' theme_settings.carousel_arrows}}
+{{inject 'mainCarouselSpeed' carousel.swap_frequency}}
+<div class="container heroCarousel-wrapper{{#if theme_settings.halo_homepage_layout_2}} container--full{{/if}}">
+    <div class="heroCarousel"
+        data-slick='{
+            "fade": true,
+            "dots": true,
+            "arrows": {{arrows}},
+            "mobileFirst": true,
+            "slidesToShow": 1,
+            "slidesToScroll": 1,
+            "autoplay": true,
+            "autoplaySpeed": {{carousel.swap_frequency}},
+            "slide": "[data-hero-slide]"
+        }'
+    >
+        {{#each carousel.slides}}
+            {{#if @index '==' 0}}
+                {{> components/carousel-item-first 
+                    theme_settings=../theme_settings
+                    settings=../settings 
+                    subheading=../theme_settings.carousel_0_subheading
+                    position=../theme_settings.carousel_0_position-content
+                    imageMobile=../theme_settings.carousel_0_mobile-image
+                    customTextBtn=../theme_settings.carousel_0_customtextbtn
+                    customBtn=../theme_settings.carousel_0_custombtn
+                    hasBackground=../theme_settings.carousel-bgColor
+                }}
+            {{/if}}
+            {{#if @index '==' 1}}
+                {{> components/carousel-item 
+                    theme_settings=../theme_settings
+                    settings=../settings 
+                    subheading=../theme_settings.carousel_1_subheading
+                    position=../theme_settings.carousel_1_position-content
+                    imageMobile=../theme_settings.carousel_1_mobile-image
+                    customTextBtn=../theme_settings.carousel_1_customtextbtn
+                    customBtn=../theme_settings.carousel_1_custombtn
+                    hasBackground=../theme_settings.carousel-bgColor
+                }}
+            {{/if}}
+            {{#if @index '==' 2}}
+                {{> components/carousel-item 
+                    theme_settings=../theme_settings
+                    settings=../settings 
+                    subheading=../theme_settings.carousel_2_subheading
+                    position=../theme_settings.carousel_2_position-content
+                    imageMobile=../theme_settings.carousel_2_mobile-image
+                    customTextBtn=../theme_settings.carousel_2_customtextbtn
+                    customBtn=../theme_settings.carousel_2_custombtn
+                    hasBackground=../theme_settings.carousel-bgColor
+                }}
+            {{/if}}
+            {{#if @index '==' 3}}
+                {{> components/carousel-item 
+                    theme_settings=../theme_settings
+                    settings=../settings 
+                    subheading=../theme_settings.carousel_3_subheading
+                    position=../theme_settings.carousel_3_position-content
+                    imageMobile=../theme_settings.carousel_3_mobile-image
+                    customTextBtn=../theme_settings.carousel_3_customtextbtn
+                    customBtn=../theme_settings.carousel_3_custombtn
+                    hasBackground=../theme_settings.carousel-bgColor
+                }}
+            {{/if}}
+            {{#if @index '==' 4}}
+                {{> components/carousel-item 
+                    theme_settings=../theme_settings
+                    settings=../settings 
+                    subheading=../theme_settings.carousel_4_subheading
+                    position=../theme_settings.carousel_4_position-content
+                    imageMobile=../theme_settings.carousel_4_mobile-image
+                    customTextBtn=../theme_settings.carousel_4_customtextbtn
+                    customBtn=../theme_settings.carousel_4_custombtn
+                    hasBackground=../theme_settings.carousel-bgColor
+                }}
+            {{/if}}
+        {{/each}}
+    </div>
+</div>
+

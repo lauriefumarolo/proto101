@@ -1,0 +1,28 @@
+<div class="heroCarousel-slide {{#if theme_settings.homepage_stretch_carousel_images}}stretch{{/if}}" data-hero-slide="{{@index}}">
+    <div class="heroCarousel-image-wrapper">
+        <a class="heroCarousel-image" href="{{url}}" aria-label="{{#if this.alt_text.length '!=' 0}}{{this.alt_text}}{{else}}{{lang 'carousel.slide_number' slide_number=(add @index 1)}}{{/if}}">
+            {{> components/common/responsive-img
+                image=stencil_image
+                class="heroCarousel-image"
+                fallback_size='1280w'
+                lazyload='lazyload'
+            }}
+            {{#if imageMobile}}
+                <img class="lazyload image-mobile" src="{{#if theme_settings.halo_homepage_layout_1}}{{cdn 'img/loading.svg'}}{{else}}{{cdn 'img/loading_2.svg'}}{{/if}}" data-src="https://cdn11.bigcommerce.com/s-{{settings.store_hash}}/product_images/uploaded_images/{{imageMobile}}" alt="{{stencil_image.alt}}" title="{{stencil_image.alt}}">
+            {{else}}
+                <img class="lazyload image-mobile" src="{{#if theme_settings.halo_homepage_layout_1}}{{cdn 'img/loading.svg'}}{{else}}{{cdn 'img/loading_2.svg'}}{{/if}}" data-src="{{getImageSrcset stencil_image 1x=(default fallback_size '960w')}}" alt="{{stencil_image.alt}}" title="{{stencil_image.alt}}">
+            {{/if}}
+        </a>
+    </div>
+    <div class="heroCarousel-content-wrapper {{position}}">
+        {{#or heading text button_text}}
+            {{> components/carousel-content 
+                subheading=subheading
+                position=position 
+                customTextBtn=customTextBtn 
+                customBtn=customBtn 
+                hasBackground=hasBackground
+            }}
+        {{/or}}
+    </div>
+</div>

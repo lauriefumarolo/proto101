@@ -1,0 +1,555 @@
+---
+products:
+    new:
+        limit: {{theme_settings.homepage_new_products_count}}
+    featured:
+        limit: {{theme_settings.homepage_featured_products_count}}
+    top_sellers:
+        limit: {{theme_settings.homepage_top_products_count}}
+carousel: {{theme_settings.homepage_show_carousel}}
+blog:
+    recent_posts:
+        limit: {{theme_settings.homepage_blog_posts_count}}
+        summary: {{theme_settings.blog_sDescLimit}}
+---
+{{#partial "hero"}}
+    {{{region name="home_below_menu"}}}
+
+    {{#if theme_settings.halo_homepage_layout_1}}
+        {{{region name="home_service_1"}}}
+
+        {{{region name="home_service_2"}}}
+    {{/if}}
+    
+    {{#and carousel carousel.slides.length}}
+        {{> components/carousel arrows=theme_settings.carousel_arrows}}
+    {{/and}}
+    {{{region name="home_below_carousel"}}}
+{{/partial}}
+
+{{#partial "page"}}
+    <div class="main full">
+        {{#if theme_settings.halo_homepage_layout_1}}
+            {{{region name="home_banner_1"}}}
+
+            {{{region name="home_category"}}}
+
+            {{{region name="home_banner_2"}}}
+
+            {{{region name="home_banner_3"}}}
+
+            {{{region name="home_banner_4"}}}
+
+            {{{region name="home_banner_5"}}}
+
+            {{{region name="home_banner_6"}}}
+
+            {{#if theme_settings.home_product_block_tab '==' 'Featured'}}
+                {{> components/halothemes/product/halo-product-tab-by-category 
+                    data-sort-tab="?sort=featured" 
+                    productsnew=products.new
+                    title=theme_settings.home_product_block_tab-title
+                }}
+            {{else if theme_settings.home_product_block_tab '==' 'New'}}
+                {{> components/halothemes/product/halo-product-tab-by-category 
+                    data-sort-tab="?sort=newest" 
+                    productsnew=products.new
+                    title=theme_settings.home_product_block_tab-title
+                }}
+            {{else if theme_settings.home_product_block_tab '==' 'Top'}}
+                {{> components/halothemes/product/halo-product-tab-by-category 
+                    data-sort-tab="?sort=bestselling" 
+                    productsnew=products.new
+                    title=theme_settings.home_product_block_tab-title
+                }}
+            {{/if}}
+
+            {{{region name="home_banner_7"}}}
+
+            {{#if theme_settings.home_product_block-1 '==' 'Featured'}}
+                {{> components/products/featured
+                    products=products.featured
+                    productsnew=products.new
+                    title=theme_settings.home_product_block-1-title
+                    link=theme_settings.home_product_block-1-link
+                    block_id="halo-product-block-1"
+                    block_limit=theme_settings.home_product_block_limit
+                    block_column=theme_settings.home_product_block_col
+                    block_layout=theme_settings.home_product_block_1_layout
+                }}
+            {{else if theme_settings.home_product_block-1 '==' 'New'}}
+                {{> components/products/new
+                    products=products.new
+                    productsnew=products.new
+                    title=theme_settings.home_product_block-1-title
+                    link=theme_settings.home_product_block-1-link
+                    block_id="halo-product-block-1"
+                    block_limit=theme_settings.home_product_block_limit
+                    block_column=theme_settings.home_product_block_col
+                    block_layout=theme_settings.home_product_block_1_layout
+                }}
+            {{else if theme_settings.home_product_block-1 '==' 'Top'}}
+                {{> components/products/top
+                    products=products.top_sellers
+                    productsnew=products.new
+                    title=theme_settings.home_product_block-1-title
+                    link=theme_settings.home_product_block-1-link
+                    block_id="halo-product-block-1"
+                    block_limit=theme_settings.home_product_block_limit
+                    block_column=theme_settings.home_product_block_col
+                    block_layout=theme_settings.home_product_block_1_layout
+                }}
+            {{/if}}
+
+            {{#if theme_settings.home_product_block-3 '==' 'Featured'}}
+                {{> components/products/featured
+                    products=products.featured
+                    productsnew=products.new
+                    title=theme_settings.home_product_block-3-title
+                    link=theme_settings.home_product_block-3-link
+                    block_id="halo-product-block-3"
+                    block_limit=theme_settings.home_product_block_limit
+                    block_column=theme_settings.home_product_block_col
+                    block_layout=theme_settings.home_product_block_3_layout
+                }}
+            {{else if theme_settings.home_product_block-3 '==' 'New'}}
+                {{> components/products/new
+                    products=products.new
+                    productsnew=products.new
+                    title=theme_settings.home_product_block-3-title
+                    link=theme_settings.home_product_block-3-link
+                    block_id="halo-product-block-3"
+                    block_limit=theme_settings.home_product_block_limit
+                    block_column=theme_settings.home_product_block_col
+                    block_layout=theme_settings.home_product_block_3_layout
+                }}
+            {{else if theme_settings.home_product_block-3 '==' 'Top'}}
+                {{> components/products/top
+                    products=products.top_sellers
+                    productsnew=products.new
+                    title=theme_settings.home_product_block-3-title
+                    link=theme_settings.home_product_block-3-link
+                    block_id="halo-product-block-3"
+                    block_limit=theme_settings.home_product_block_limit
+                    block_column=theme_settings.home_product_block_col
+                    block_layout=theme_settings.home_product_block_3_layout
+                }}
+            {{/if}}
+
+            {{#if theme_settings.home_product_block-4 '==' 'Featured'}}
+                {{> components/products/featured
+                    products=products.featured
+                    productsnew=products.new
+                    title=theme_settings.home_product_block-4-title
+                    link=theme_settings.home_product_block-4-link
+                    block_id="halo-product-block-4"
+                    block_limit=theme_settings.home_product_block_limit
+                    block_column=theme_settings.home_product_block_col
+                    block_layout=theme_settings.home_product_block_4_layout
+                }}
+            {{else if theme_settings.home_product_block-4 '==' 'New'}}
+                {{> components/products/new
+                    products=products.new
+                    productsnew=products.new
+                    title=theme_settings.home_product_block-4-title
+                    link=theme_settings.home_product_block-4-link
+                    block_id="halo-product-block-4"
+                    block_limit=theme_settings.home_product_block_limit
+                    block_column=theme_settings.home_product_block_col
+                    block_layout=theme_settings.home_product_block_4_layout
+                }}
+            {{else if theme_settings.home_product_block-4 '==' 'Top'}}
+                {{> components/products/top
+                    products=products.top_sellers
+                    productsnew=products.new
+                    title=theme_settings.home_product_block-4-title
+                    link=theme_settings.home_product_block-4-link
+                    block_id="halo-product-block-4"
+                    block_limit=theme_settings.home_product_block_limit
+                    block_column=theme_settings.home_product_block_col
+                    block_layout=theme_settings.home_product_block_4_layout
+                }}
+            {{/if}}
+
+            {{> components/halothemes/home/home-recent-posts post=blog.recent_posts style='home1'}}
+
+            {{{region name="home_instagram"}}}
+
+            {{{region name="home_banner_text"}}}
+        {{else if theme_settings.halo_homepage_layout_2}}
+            {{{region name="home_category_featured_1"}}}
+
+            {{{region name="home_popular_category"}}}
+
+            {{#if theme_settings.home_product_block-1 '==' 'Featured'}}
+                {{> components/products/featured
+                    products=products.featured
+                    productsnew=products.new
+                    title=theme_settings.home_product_block-1-title
+                    link=theme_settings.home_product_block-1-link
+                    block_id="halo-product-block-1"
+                    block_limit=theme_settings.home_product_block_limit
+                    block_column=theme_settings.home_product_block_col
+                    block_layout=theme_settings.home_product_block_1_layout
+                    show_dots_bar="true"
+                }}
+            {{else if theme_settings.home_product_block-1 '==' 'New'}}
+                {{> components/products/new
+                    products=products.new
+                    productsnew=products.new
+                    title=theme_settings.home_product_block-1-title
+                    link=theme_settings.home_product_block-1-link
+                    block_id="halo-product-block-1"
+                    block_limit=theme_settings.home_product_block_limit
+                    block_column=theme_settings.home_product_block_col
+                    block_layout=theme_settings.home_product_block_1_layout
+                    show_dots_bar="true"
+                }}
+            {{else if theme_settings.home_product_block-1 '==' 'Top'}}
+                {{> components/products/top
+                    products=products.top_sellers
+                    productsnew=products.new
+                    title=theme_settings.home_product_block-1-title
+                    link=theme_settings.home_product_block-1-link
+                    block_id="halo-product-block-1"
+                    block_limit=theme_settings.home_product_block_limit
+                    block_column=theme_settings.home_product_block_col
+                    block_layout=theme_settings.home_product_block_1_layout
+                    show_dots_bar="true"
+                }}
+            {{/if}}
+
+            {{{region name="home_lookbook_1"}}}
+
+            {{#if theme_settings.home_product_block-3 '==' 'Featured'}}
+                {{> components/products/featured
+                    products=products.featured
+                    productsnew=products.new
+                    title=theme_settings.home_product_block-3-title
+                    link=theme_settings.home_product_block-3-link
+                    block_id="halo-product-block-3"
+                    block_limit=theme_settings.home_product_block_limit
+                    block_column=theme_settings.home_product_block_col
+                    block_layout=theme_settings.home_product_block_3_layout
+                    show_dots_bar="true"
+                }}
+            {{else if theme_settings.home_product_block-3 '==' 'New'}}
+                {{> components/products/new
+                    products=products.new
+                    productsnew=products.new
+                    title=theme_settings.home_product_block-3-title
+                    link=theme_settings.home_product_block-3-link
+                    block_id="halo-product-block-3"
+                    block_limit=theme_settings.home_product_block_limit
+                    block_column=theme_settings.home_product_block_col
+                    block_layout=theme_settings.home_product_block_3_layout
+                    show_dots_bar="true"
+                }}
+            {{else if theme_settings.home_product_block-3 '==' 'Top'}}
+                {{> components/products/top
+                    products=products.top_sellers
+                    productsnew=products.new
+                    title=theme_settings.home_product_block-3-title
+                    link=theme_settings.home_product_block-3-link
+                    block_id="halo-product-block-3"
+                    block_limit=theme_settings.home_product_block_limit
+                    block_column=theme_settings.home_product_block_col
+                    block_layout=theme_settings.home_product_block_3_layout
+                    show_dots_bar="true"
+                }}
+            {{/if}}
+
+            {{#if theme_settings.home_product_block-4 '==' 'Featured'}}
+                {{> components/products/featured
+                    products=products.featured
+                    productsnew=products.new
+                    title=theme_settings.home_product_block-4-title
+                    link=theme_settings.home_product_block-4-link
+                    block_id="halo-product-block-4"
+                    block_limit=theme_settings.home_product_block_limit
+                    block_column=theme_settings.home_product_block_col
+                    block_layout=theme_settings.home_product_block_4_layout
+                    show_dots_bar="true"
+                }}
+            {{else if theme_settings.home_product_block-4 '==' 'New'}}
+                {{> components/products/new
+                    products=products.new
+                    productsnew=products.new
+                    title=theme_settings.home_product_block-4-title
+                    link=theme_settings.home_product_block-4-link
+                    block_id="halo-product-block-4"
+                    block_limit=theme_settings.home_product_block_limit
+                    block_column=theme_settings.home_product_block_col
+                    block_layout=theme_settings.home_product_block_4_layout
+                    show_dots_bar="true"
+                }}
+            {{else if theme_settings.home_product_block-4 '==' 'Top'}}
+                {{> components/products/top
+                    products=products.top_sellers
+                    productsnew=products.new
+                    title=theme_settings.home_product_block-4-title
+                    link=theme_settings.home_product_block-4-link
+                    block_id="halo-product-block-4"
+                    block_limit=theme_settings.home_product_block_limit
+                    block_column=theme_settings.home_product_block_col
+                    block_layout=theme_settings.home_product_block_4_layout
+                    show_dots_bar="true"
+                }}
+            {{/if}}
+
+            {{{region name="home_instagram_2"}}}
+
+            {{{region name="home_category_featured_2"}}}
+
+            {{{region name="home_lookbook_2"}}}
+
+            {{{region name="home_customer_reviews_2"}}}
+
+            {{> components/halothemes/home/home-recent-posts post=blog.recent_posts style='home1'}}
+        {{else if theme_settings.halo_homepage_layout_3}}
+            {{{region name="home_halo_six_banners"}}}
+
+            {{#if theme_settings.home_product_block-1 '==' 'Featured'}}
+                {{> components/products/featured
+                    products=products.featured
+                    productsnew=products.new
+                    title=theme_settings.home_product_block-1-title
+                    link=theme_settings.home_product_block-1-link
+                    block_id="halo-product-block-1"
+                    block_limit=theme_settings.home_product_block_limit
+                    block_column=theme_settings.home_product_block_col
+                    block_layout=theme_settings.home_product_block_1_layout
+                    show_dots_bar="true"
+                }}
+            {{else if theme_settings.home_product_block-1 '==' 'New'}}
+                {{> components/products/new
+                    products=products.new
+                    productsnew=products.new
+                    title=theme_settings.home_product_block-1-title
+                    link=theme_settings.home_product_block-1-link
+                    block_id="halo-product-block-1"
+                    block_limit=theme_settings.home_product_block_limit
+                    block_column=theme_settings.home_product_block_col
+                    block_layout=theme_settings.home_product_block_1_layout
+                    show_dots_bar="true"
+                }}
+            {{else if theme_settings.home_product_block-1 '==' 'Top'}}
+                {{> components/products/top
+                    products=products.top_sellers
+                    productsnew=products.new
+                    title=theme_settings.home_product_block-1-title
+                    link=theme_settings.home_product_block-1-link
+                    block_id="halo-product-block-1"
+                    block_limit=theme_settings.home_product_block_limit
+                    block_column=theme_settings.home_product_block_col
+                    block_layout=theme_settings.home_product_block_1_layout
+                    show_dots_bar="true"
+                }}
+            {{/if}}
+
+            {{{region name="home_banner_9"}}}
+
+            {{#if theme_settings.home_product_block-3 '==' 'Featured'}}
+                {{> components/products/featured
+                    products=products.featured
+                    productsnew=products.new
+                    title=theme_settings.home_product_block-3-title
+                    link=theme_settings.home_product_block-3-link
+                    block_id="halo-product-block-3"
+                    block_limit=theme_settings.home_product_block_limit
+                    block_column=theme_settings.home_product_block_col
+                    block_layout=theme_settings.home_product_block_3_layout
+                    show_dots_bar="true"
+                }}
+            {{else if theme_settings.home_product_block-3 '==' 'New'}}
+                {{> components/products/new
+                    products=products.new
+                    productsnew=products.new
+                    title=theme_settings.home_product_block-3-title
+                    link=theme_settings.home_product_block-3-link
+                    block_id="halo-product-block-3"
+                    block_limit=theme_settings.home_product_block_limit
+                    block_column=theme_settings.home_product_block_col
+                    block_layout=theme_settings.home_product_block_3_layout
+                    show_dots_bar="true"
+                }}
+            {{else if theme_settings.home_product_block-3 '==' 'Top'}}
+                {{> components/products/top
+                    products=products.top_sellers
+                    productsnew=products.new
+                    title=theme_settings.home_product_block-3-title
+                    link=theme_settings.home_product_block-3-link
+                    block_id="halo-product-block-3"
+                    block_limit=theme_settings.home_product_block_limit
+                    block_column=theme_settings.home_product_block_col
+                    block_layout=theme_settings.home_product_block_3_layout
+                    show_dots_bar="true"
+                }}
+            {{/if}}
+
+            {{{region name="home_image_gallery"}}}
+
+            {{#if theme_settings.home_product_block-4 '==' 'Featured'}}
+                {{> components/products/featured
+                    products=products.featured
+                    productsnew=products.new
+                    title=theme_settings.home_product_block-4-title
+                    link=theme_settings.home_product_block-4-link
+                    block_id="halo-product-block-4"
+                    block_limit=theme_settings.home_product_block_limit
+                    block_column=theme_settings.home_product_block_col
+                    block_layout=theme_settings.home_product_block_4_layout
+                    show_dots_bar="true"
+                }}
+            {{else if theme_settings.home_product_block-4 '==' 'New'}}
+                {{> components/products/new
+                    products=products.new
+                    productsnew=products.new
+                    title=theme_settings.home_product_block-4-title
+                    link=theme_settings.home_product_block-4-link
+                    block_id="halo-product-block-4"
+                    block_limit=theme_settings.home_product_block_limit
+                    block_column=theme_settings.home_product_block_col
+                    block_layout=theme_settings.home_product_block_4_layout
+                    show_dots_bar="true"
+                }}
+            {{else if theme_settings.home_product_block-4 '==' 'Top'}}
+                {{> components/products/top
+                    products=products.top_sellers
+                    productsnew=products.new
+                    title=theme_settings.home_product_block-4-title
+                    link=theme_settings.home_product_block-4-link
+                    block_id="halo-product-block-4"
+                    block_limit=theme_settings.home_product_block_limit
+                    block_column=theme_settings.home_product_block_col
+                    block_layout=theme_settings.home_product_block_4_layout
+                    show_dots_bar="true"
+                }}
+            {{/if}}
+
+            {{{region name="home_instagram"}}}
+        {{else if theme_settings.halo_homepage_layout_4}}
+            {{{region name="home_shop_category"}}}
+
+            {{{region name="home_banner_parallax_1"}}}
+
+            {{#if theme_settings.home_product_block-1 '==' 'Featured'}}
+                {{> components/products/featured
+                    products=products.featured
+                    productsnew=products.new
+                    title=theme_settings.home_product_block-1-title
+                    link=theme_settings.home_product_block-1-link
+                    block_id="halo-product-block-1"
+                    block_limit=theme_settings.home_product_block_limit
+                    block_column=theme_settings.home_product_block_col
+                    block_layout=theme_settings.home_product_block_1_layout
+                }}
+            {{else if theme_settings.home_product_block-1 '==' 'New'}}
+                {{> components/products/new
+                    products=products.new
+                    productsnew=products.new
+                    title=theme_settings.home_product_block-1-title
+                    link=theme_settings.home_product_block-1-link
+                    block_id="halo-product-block-1"
+                    block_limit=theme_settings.home_product_block_limit
+                    block_column=theme_settings.home_product_block_col
+                    block_layout=theme_settings.home_product_block_1_layout
+                }}
+            {{else if theme_settings.home_product_block-1 '==' 'Top'}}
+                {{> components/products/top
+                    products=products.top_sellers
+                    productsnew=products.new
+                    title=theme_settings.home_product_block-1-title
+                    link=theme_settings.home_product_block-1-link
+                    block_id="halo-product-block-1"
+                    block_limit=theme_settings.home_product_block_limit
+                    block_column=theme_settings.home_product_block_col
+                    block_layout=theme_settings.home_product_block_1_layout
+                }}
+            {{/if}}
+
+            {{{region name="home_banner_parallax_2"}}}
+
+            {{#if theme_settings.home_product_block-3 '==' 'Featured'}}
+                {{> components/products/featured
+                    products=products.featured
+                    productsnew=products.new
+                    title=theme_settings.home_product_block-3-title
+                    link=theme_settings.home_product_block-3-link
+                    block_id="halo-product-block-3"
+                    block_limit=theme_settings.home_product_block_limit
+                    block_column=theme_settings.home_product_block_col
+                    block_layout=theme_settings.home_product_block_3_layout
+                }}
+            {{else if theme_settings.home_product_block-3 '==' 'New'}}
+                {{> components/products/new
+                    products=products.new
+                    productsnew=products.new
+                    title=theme_settings.home_product_block-3-title
+                    link=theme_settings.home_product_block-3-link
+                    block_id="halo-product-block-3"
+                    block_limit=theme_settings.home_product_block_limit
+                    block_column=theme_settings.home_product_block_col
+                    block_layout=theme_settings.home_product_block_3_layout
+                }}
+            {{else if theme_settings.home_product_block-3 '==' 'Top'}}
+                {{> components/products/top
+                    products=products.top_sellers
+                    productsnew=products.new
+                    title=theme_settings.home_product_block-3-title
+                    link=theme_settings.home_product_block-3-link
+                    block_id="halo-product-block-3"
+                    block_limit=theme_settings.home_product_block_limit
+                    block_column=theme_settings.home_product_block_col
+                    block_layout=theme_settings.home_product_block_3_layout
+                }}
+            {{/if}}
+
+            {{{region name="home_banner_parallax_3"}}}
+
+            {{#if theme_settings.home_product_block-4 '==' 'Featured'}}
+                {{> components/products/featured
+                    products=products.featured
+                    productsnew=products.new
+                    title=theme_settings.home_product_block-4-title
+                    link=theme_settings.home_product_block-4-link
+                    block_id="halo-product-block-4"
+                    block_limit=theme_settings.home_product_block_limit
+                    block_column=theme_settings.home_product_block_col
+                    block_layout=theme_settings.home_product_block_4_layout
+                }}
+            {{else if theme_settings.home_product_block-4 '==' 'New'}}
+                {{> components/products/new
+                    products=products.new
+                    productsnew=products.new
+                    title=theme_settings.home_product_block-4-title
+                    link=theme_settings.home_product_block-4-link
+                    block_id="halo-product-block-4"
+                    block_limit=theme_settings.home_product_block_limit
+                    block_column=theme_settings.home_product_block_col
+                    block_layout=theme_settings.home_product_block_4_layout
+                }}
+            {{else if theme_settings.home_product_block-4 '==' 'Top'}}
+                {{> components/products/top
+                    products=products.top_sellers
+                    productsnew=products.new
+                    title=theme_settings.home_product_block-4-title
+                    link=theme_settings.home_product_block-4-link
+                    block_id="halo-product-block-4"
+                    block_limit=theme_settings.home_product_block_limit
+                    block_column=theme_settings.home_product_block_col
+                    block_layout=theme_settings.home_product_block_4_layout
+                }}
+            {{/if}}
+            {{> components/halothemes/home/home-recent-posts post=blog.recent_posts style='home3'}}
+            {{#if settings.show_newsletter_box}}
+                {{#if theme_settings.halo_subscription_form}}
+                    {{> components/halothemes/home/home-subscription-form}}
+                {{/if}}
+            {{/if}}
+
+            {{{region name="home_customer_reviews_2"}}}
+        {{/if}}
+    </div>
+{{/partial}}
+{{> layout/base}}

@@ -1,0 +1,134 @@
+// =============================================================================
+// PRODUCT GRID (CSS)
+// =============================================================================
+
+
+// Product grid view
+// -----------------------------------------------------------------------------
+//
+// 1. Re-set the font-size, as we're reducing it to 0 in the .products class.
+//
+// -----------------------------------------------------------------------------
+.productGrid {
+    display: block;
+    font-size: 0;
+    letter-spacing: 0;
+    margin: 0 -8px;
+    list-style: none;
+    text-align: left;
+
+    .product,
+    .product-sample {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+        padding: 0 8px;
+        margin: 0 0 25px 0;
+        white-space: normal;
+    }
+
+    .product-sample * {
+        font-size: 0;
+    }
+
+    @media (min-width: 551px) {
+
+        .product,
+        .product-sample {
+            margin-bottom: 16px;
+        }
+    }
+
+    @media (min-width: 768px) {
+
+        .product,
+        .product-sample {
+            width: 33.3333333%;
+        }
+    }
+
+    @media (min-width: 1025px) {
+        margin-left: -15px;
+        margin-right: -15px;
+
+        .product,
+        .product-sample {
+            padding-left: 15px;
+            padding-right: 15px;
+            margin-bottom: 0;
+
+            .card {
+                padding-bottom: 65px;
+            }
+        }
+
+        &.col-4 {
+
+            .product,
+            .product-sample {
+                width: 50% !important;
+            }
+        }
+
+        &.col-5 {
+
+            .product,
+            .product-sample {
+                width: 33.3333333% !important;
+            }
+        }
+    }
+
+    @media (min-width: 1280px) {
+        &.col-4 {
+
+            .product,
+            .product-sample {
+                width: 33.3333333% !important;
+            }
+        }
+
+        &.col-5 {
+
+            .product,
+            .product-sample {
+                width: 20% !important;
+            }
+        }
+    }
+
+    @media (min-width: 1600px) {
+        &.col-4 {
+
+            .product,
+            .product-sample {
+                width: 25% !important;
+            }
+        }
+    }
+}
+
+.product-sample {
+    .card-wrapper {
+        margin-bottom: 5px;
+    }
+
+    .card-body {
+        min-height: 140px;
+    }
+}
+
+.productGrid-showMore {
+    display: block;
+    text-align: center;
+    margin: 30px 0 0 0;
+
+    .button {
+        min-width: 200px;
+        text-transform: uppercase;
+    }
+
+    @media (min-width: 1025px) {
+        margin-top: 50px;
+    }
+}
